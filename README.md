@@ -1,3 +1,3 @@
 # ZeeFNF
-## A cool enging
-engine for hting. will make bnetter lettert
+## A cool engine for cool things
+QOL engine made out of spite. Custom made for VS Ponko.
