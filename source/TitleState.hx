@@ -38,15 +38,8 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
-		ProjectFNF.updateOptions();
+		Base.updateOptions();
 		
-		#if polymod
-		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
-		#end
-		@:privateAccess
-		{
-			trace("Loaded " + openfl.Assets.getLibrary("default").assetsLoaded + " assets (DEFAULT)");
-		}
 		PlayerSettings.init();
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());

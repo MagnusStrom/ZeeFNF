@@ -1,7 +1,7 @@
 import flixel.FlxG;
 
 // YOU CAN IGNORE THIS
-class ProjectFNF
+class Base
 {
 	/**
 	* Simple helper function to update all options to prevent crashes. ngl you could probably run this every frame :troll:
