@@ -88,6 +88,22 @@ class ModCharts
 	}
 
 	/**
+	 * Loops a sprite in a circle infinetly. ROTATES THE SPRITE!
+	 *
+	 * ```haxe
+	 * ModCharts.spinLoop(arrow, 90, 50);
+	 * ```
+	 *
+	 * @param	Object 		The object to move (FlxObject)
+	 * @param	RotateRadius 		The rotating radius of the object
+	 * @param	Duration 		The time it takes to complete a rotation
+	 */
+	static public function spinLoop(sprite, duration)
+	{
+		FlxTween.tween(sprite, { angle: 360 }, duration, {type: FlxTweenType.LOOPING});
+	}
+
+	/**
 	 * Moves the sprite to a certain place on the screen over time.
 	 *
 	 * ```haxe

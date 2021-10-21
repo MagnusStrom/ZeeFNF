@@ -1,5 +1,5 @@
 /**
- *  This is the config folder for ProjectFNF
+ *  This is the config folder for ZeeFNF
  *
  * These are config options the player doesn't get to access so you can keep the game looking as intended.
  * 
@@ -64,25 +64,14 @@ class Config extends MusicBeatState
 	 */
 	public static var CONFIGGfCar:Bool = true;
 
-	/**
-	 * Use the ProjectFNF logo or the Friday Night Funkin logo??
-	 * 
-	 * Default = **true**
-	 */
-	public static var CONFIGTitle:Bool = true;
 
-	/**
-	 * Skips the "You are using a bla bla bla projectfnf bla bla bla github bla bla bla" message
-	 * 
-	 * Usually for devs
-	 */
-	public static var CONFIGSkip:Bool = true;
+
 	/**
 	 *  The Name of the Mod. This shows up in the Main Menu with the Story Mode, Freeplay, Donate, and Options buttons
 	 * 
 	 * Default = **ProjectFNF**
 	 */
-	public static var ModName:String = 'ProjectFNF';
+	public static var ModName:String = 'ZeeFNF';
 
 	/**
 	 * This is a WIP thing. I don't fully know what I'm gonna do with this but I might just have it make the Output be a little more in depth.

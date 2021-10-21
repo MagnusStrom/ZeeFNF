@@ -29,15 +29,14 @@ class TitleState extends MusicBeatState
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
-	var ngSpr:FlxSprite;
+	var logoSprite:FlxSprite;
 
 	var curWacky:Array<String> = [];
 
 	var wackyImage:FlxSprite;
-	var skip:Bool = Config.CONFIGSkip;
-
 	override public function create():Void
 	{
+		FlxG.save.bind('savedata', 'data');
 		Base.updateOptions();
 		
 		PlayerSettings.init();
@@ -55,7 +54,6 @@ class TitleState extends MusicBeatState
 		trace('NEWGROUNDS LOL');
 		#end
 
-		FlxG.save.bind('savedata', 'data');
 
 		Highscore.load();
 
@@ -132,20 +130,6 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
-		logoBl = new FlxSprite(-150, -100);
-		if (Config.CONFIGTitle == true) // AFLAC YOU ABSOLUTE MONKEY
-		{
-			logoBl.frames = Paths.getSparrowAtlas('ProjectFNFLogoBumpin');
-			logoBl.x += 180;
-			logoBl.y += 80;
-		}
-		else {
-			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-			logoBl.antialiasing = true;
-			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-			logoBl.animation.play('bump');
-			logoBl.updateHitbox();
-		}
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
@@ -155,7 +139,6 @@ class TitleState extends MusicBeatState
 		gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.antialiasing = true;
 		add(gfDance);
-		add(logoBl);
 
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -189,14 +172,12 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0,
-			FlxG.height * 0.52).loadGraphic(Paths.image('PFNF')); // ProjectFNF logo. I just realized I had this comment say I didn't have one lmao
-		add(ngSpr);
-		ngSpr.visible = false;
-		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
-		ngSpr.updateHitbox();
-		ngSpr.screenCenter(X);
-		ngSpr.antialiasing = true;
+		logoSprite = new FlxSprite().loadGraphic(Paths.image('PFNF')); // ProjectFNF logo. I just realized I had this comment say I didn't have one lmao
+		add(logoSprite);
+		logoSprite.visible = true;
+		logoSprite.setGraphicSize(Std.int(logoSprite.width * 0.5));
+		logoSprite.updateHitbox();
+		logoSprite.antialiasing = true;
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
@@ -213,8 +194,6 @@ class TitleState extends MusicBeatState
 	function getIntroTextShit():Array<Array<String>>
 	{
 		var fullText:String = Assets.getText(Paths.txt('introText'));
-		if (Date.now().getDay() == 5)
-			fullText = Assets.getText(Paths.txt('funkyText'));
 
 		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];
@@ -291,20 +270,8 @@ class TitleState extends MusicBeatState
 				// Check if version is outdated
 				var version:String = "v" + Application.current.meta.get('version');
 
-				if (version.trim() != NGio.GAME_VER_NUMS.trim() && !OutdatedSubState.leftState && skip == false)
-				{
-					FlxG.switchState(new OutdatedSubState());
-					trace('OLD VERSION!');
-					trace('old ver');
-					trace(version.trim());
-					trace('cur ver');
-					trace(NGio.GAME_VER_NUMS.trim());
-				}
-				else
-				{
-					//FlxG.switchState(new TapBPMState());
-					FlxG.switchState(new MainMenuState());
-				}
+				//FlxG.switchState(new TapBPMState());
+				FlxG.switchState(new MainMenuState());
 			});
 			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
@@ -351,7 +318,6 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		logoBl.animation.play('bump');
 		danceLeft = !danceLeft;
 
 		if (danceLeft)
@@ -364,50 +330,30 @@ class TitleState extends MusicBeatState
 		switch (curBeat)
 		{
 			case 1:
-				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er', 'aflac']);
-			// credTextShit.visible = true;
+				createCoolText(['Zeptos']);
 			case 3:
-				addMoreText('present');
-			// credTextShit.text += '\npresent...';
-			// credTextShit.addText();
+				addMoreText('presents');
 			case 4:
 				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = 'In association \nwith';
-			// credTextShit.screenCenter();
+
 			case 5:
-				createCoolText(['Made', 'with']);
+				createCoolText(['Powered', 'By']);
 			case 7:
-				addMoreText('ProjectFNF'); // dont remove pls
-				ngSpr.visible = true;
-			// credTextShit.text += '\nNewgrounds';
+				addMoreText('ZeeFNF'); 
 			case 8:
 				deleteCoolText();
-				ngSpr.visible = false;
-			// credTextShit.visible = false;
-
-			// credTextShit.text = 'Shoutouts Tom Fulp';
-			// credTextShit.screenCenter();
 			case 9:
 				createCoolText([curWacky[0]]);
-			// credTextShit.visible = true;
 			case 11:
 				addMoreText(curWacky[1]);
-			// credTextShit.text += '\nlmao';
 			case 12:
 				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = "Friday";
-			// credTextShit.screenCenter();
 			case 13:
 				addMoreText(Config.TITLEMESSAGE[0]);
-			// credTextShit.visible = true;
 			case 14:
 				addMoreText(Config.TITLEMESSAGE[1]);
-			// credTextShit.text += '\nNight';
 			case 15:
-				addMoreText(Config.TITLEMESSAGE[2]); // credTextShit.text += '\nFunkin';
-
+				addMoreText(Config.TITLEMESSAGE[2]);
 			case 16:
 				skipIntro();
 		}
@@ -419,7 +365,7 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
-			remove(ngSpr);
+			remove(logoSprite);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
