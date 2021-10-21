@@ -1670,9 +1670,9 @@ class PlayState extends MusicBeatState
 				}
 		
 				if (FlxG.save.data.botplay) {
-					infoTxt.text = "BOTPLAY // ProjectFNF " + Application.current.meta.get('version');
+					infoTxt.text = "BOTPLAY // ZeeFNF " + Application.current.meta.get('version');
 				} else if (!FlxG.save.data.advancedinfobar) {
-						infoTxt.text = "Misses: " + songNotesMissed + " // Health: " + healthBar.percent + "% // Score: " + songScore + " // ProjectFNF " + Application.current.meta.get('version');
+						infoTxt.text = "Misses: " + songNotesMissed + " // Health: " + healthBar.percent + "% // Score: " + songScore + " // ZeeFNF " + Application.current.meta.get('version');
 					//	infoTxt.updateHitbox(); 
 				} else {
 					// the things i do for funny colors
@@ -1713,7 +1713,7 @@ class PlayState extends MusicBeatState
 						}
 						finalthing += item + ": " + lol + " // ";
 					}
-					infoTxt.applyMarkup(finalthing + "ProjectFNF " + Application.current.meta.get('version'),
+					infoTxt.applyMarkup(finalthing + "ZeeFNF " + Application.current.meta.get('version'),
 						[
 							new FlxTextFormatMarkerPair(fullClearFormat, "!"),
 							new FlxTextFormatMarkerPair(sFormat, "<"),
@@ -1990,7 +1990,7 @@ class PlayState extends MusicBeatState
 			FlxG.sound.music.stop();
 			FlxG.camera.shake(0.08, 0.1, null, true, XY);
 			if (SONG.song.toLowerCase() == 'tutorial')
-				trace('[ProjectFNF] how tf did you die on tutorial');
+				trace('[ZeeFNF] how tf did you die on tutorial');
 			openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 			// FlxG.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
@@ -2350,7 +2350,7 @@ class PlayState extends MusicBeatState
 			}
 			else
 			{
-				trace('[ProjectFNF] Returned to Freeplay');
+				trace('[ZeeFNF] Returned to Freeplay');
 				FlxG.switchState(new FreeplayState());
 			}
 	}

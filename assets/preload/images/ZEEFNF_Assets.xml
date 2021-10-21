@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ZEEFNF_Assets.png">
+	<!-- Created with Adobe Animate version 21.0.9.42677 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="logo bumpin0000" x="0" y="0" width="657" height="506" pivotX="-132.4" pivotY="-96.9"/>
+	<SubTexture name="logo bumpin0001" x="657" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0002" x="657" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0003" x="1314" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0004" x="1314" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0005" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0006" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0007" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0008" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0009" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0010" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0011" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0012" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0013" x="1971" y="0" width="657" height="506"/>
+	<SubTexture name="logo bumpin0014" x="1971" y="0" width="657" height="506"/>
+</TextureAtlas>

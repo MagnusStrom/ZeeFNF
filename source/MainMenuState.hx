@@ -97,7 +97,7 @@ class MainMenuState extends MusicBeatState
 		var versionShit:FlxText = new FlxText(5, FlxG.height - 32, 0, "v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		var PFNFversionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "ProjectFNF version " + Application.current.meta.get('version'));
+		var PFNFversionShit:FlxText = new FlxText(5, FlxG.height - 18, 0, "ZeeFNF version " + Application.current.meta.get('version'));
 		PFNFversionShit.scrollFactor.set();
 		PFNFversionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(PFNFversionShit);

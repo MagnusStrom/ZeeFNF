@@ -130,6 +130,14 @@ class TitleState extends MusicBeatState
 		// bg.updateHitbox();
 		add(bg);
 
+		logoBl = new FlxSprite(-150, -100);
+		logoBl.frames = Paths.getSparrowAtlas('ZEEFNF_Assets');
+		logoBl.x += 180;
+		logoBl.y += 80;
+		logoBl.antialiasing = true;
+		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
+		logoBl.animation.play('bump');
+		logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
@@ -155,7 +163,6 @@ class TitleState extends MusicBeatState
 		logo.antialiasing = true;
 		// add(logo);
 
-		// FlxTween.tween(logoBl, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG});
 		// FlxTween.tween(logo, {y: logoBl.y + 50}, 0.6, {ease: FlxEase.quadInOut, type: PINGPONG, startDelay: 0.1});
 
 		credGroup = new FlxGroup();
@@ -172,10 +179,10 @@ class TitleState extends MusicBeatState
 
 		credTextShit.visible = false;
 
-		logoSprite = new FlxSprite().loadGraphic(Paths.image('PFNF')); // ProjectFNF logo. I just realized I had this comment say I didn't have one lmao
+		logoSprite = new FlxSprite().loadGraphic(Paths.image('zfnf'));
 		add(logoSprite);
 		logoSprite.visible = true;
-		logoSprite.setGraphicSize(Std.int(logoSprite.width * 0.5));
+		logoSprite.setGraphicSize(Std.int(logoSprite.width * 0.3));
 		logoSprite.updateHitbox();
 		logoSprite.antialiasing = true;
 
@@ -252,8 +259,7 @@ class TitleState extends MusicBeatState
 			// If it's Friday according to da clock
 			if (Date.now().getDay() == 5)
 			{
-				trace('[ProjectFNF] GUYS ITS FRIDAY HELL YEAH');
-				NGio.unlockMedal(61034);
+				trace('[ZeeFNF] GUYS ITS FRIDAY HELL YEAH');
 			}
 			#end
 
@@ -318,6 +324,8 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
+		logoBl.animation.play('bump');
+
 		danceLeft = !danceLeft;
 
 		if (danceLeft)
@@ -366,7 +374,7 @@ class TitleState extends MusicBeatState
 		if (!skippedIntro)
 		{
 			remove(logoSprite);
-
+			add(logoBl);
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
 			skippedIntro = true;

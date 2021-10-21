@@ -69,7 +69,7 @@ class Config extends MusicBeatState
 	/**
 	 *  The Name of the Mod. This shows up in the Main Menu with the Story Mode, Freeplay, Donate, and Options buttons
 	 * 
-	 * Default = **ProjectFNF**
+	 * Default = **ZeeFNF**
 	 */
 	public static var ModName:String = 'ZeeFNF';
 

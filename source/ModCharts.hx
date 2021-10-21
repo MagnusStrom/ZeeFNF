@@ -254,7 +254,7 @@ class ModCharts
 	{
 		if (object.alpha == 0)
 		{
-			trace("[ProjectFNF] Alpha can not be 0");
+			trace("Alpha can not be 0");
 			return;
 		}
 		FlxTween.tween(object, {"alpha": 0}, 2, {ease: FlxEase.quadOut, type: FlxTween.PINGPONG});
